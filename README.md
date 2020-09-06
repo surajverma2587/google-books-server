@@ -27,3 +27,15 @@ We should have some rudimentary data available that is in the correct book forma
 - Create a seed command in the `package.json` that we can use such as `npm run seed`
 - Create a `seed.js` file inside of a `seed/` folder that will connect to the mongoose database and add the relevant books.
 - Create a `Book.js` file with a mongoose `Book` model that will allow us to run Mongoose CRUD operations on the `Book` collection.
+
+### GB-3 - Add a get route
+
+#### Description
+
+We need the ability to get a list of books from our endpoint by calling a `/books` endpoint on our app.
+
+#### ACs
+
+- Create a `/books` endpoint on the api.
+- This should return the collection of the books from the `Book.js` model we created in mongoose.
+- Use this as an opportunity to create a structure / schema for your response such as `{ results: [] }`
