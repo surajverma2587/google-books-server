@@ -38,6 +38,40 @@ const getBooksFromGoogle = async (req, res) => {
   }
 };
 
+const saveBookInDb = async (req, res) => {
+  try {
+    const payload = req.body;
+
+    await db.Book.create(payload);
+
+    res.json({
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+};
+
+const removeBookInDb = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    await db.Book.findByIdAndDelete(id);
+
+    res.json({
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+};
+
 apiRouter.post("/books", getBooksFromGoogle);
+apiRouter.post("/save", saveBookInDb);
+apiRouter.delete("/books/:id", removeBookInDb);
 
 module.exports = apiRouter;
