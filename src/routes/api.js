@@ -70,7 +70,22 @@ const removeBookInDb = async (req, res) => {
   }
 };
 
+const getAllSavedBooks = async (_, res) => {
+  try {
+    const books = await db.Book.find({});
+
+    res.json({
+      results: books,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+};
+
 apiRouter.post("/books", getBooksFromGoogle);
+apiRouter.get("/save", getAllSavedBooks);
 apiRouter.post("/save", saveBookInDb);
 apiRouter.delete("/books/:id", removeBookInDb);
 
