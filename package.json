@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/surajverma2587/google-books-server/issues"
   },
-  "homepage": "https://github.com/surajverma2587/google-books-server#readme"
+  "homepage": "https://github.com/surajverma2587/google-books-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  }
 }
